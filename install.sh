@@ -13,9 +13,6 @@ if [ "$(uname)" == "Darwin" ]; then
 
 	# Make sure we’re using the latest Homebrew
 	brew update
-	# Upgrade any already-installed formulae
-	brew tap homebrew/versions
-	brew upgrade --all
 
 	apps=(
         bash
@@ -29,32 +26,30 @@ if [ "$(uname)" == "Darwin" ]; then
         zsh-completions
 	)
 	brew install "${apps[@]}"
+	brew upgrade "${apps[@]}"
 	sudo easy_install pip
+
+	brew cleanup
 
 	# Install Caskroom
 	brew tap caskroom/cask
-	brew tap caskroom/versions
     brew tap caskroom/fonts
 
 	apps=(
-        atom
 		docker
         font-source-code-pro-for-powerline
         font-source-code-pro
         font-source-sans-pro
         font-source-serif-pro
 		iterm2
-        nordvpn
 		postman
 		sequel-pro
-		sublime-text
-		unrar
         vagrant
         virtualbox
         virtualbox-extension-pack
-        visual-studio-code
 	)
 	brew cask install "${apps[@]}"
+	brew cask upgrade "${apps[@]}"
 
 	# Remove outdated versions from the cellar
 	brew cleanup
