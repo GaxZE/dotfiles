@@ -93,3 +93,7 @@ export ZSH="$HOME/.dotfiles/oh-my-zsh"; sh -c "$(curl -fsSL https://raw.githubus
 # Removes .zshrc from $HOME (if it exists) and symlinks the .zshrc file from the .dotfiles
 rm -rf $HOME/.zshrc
 ln -s $HOME/.dotfiles/.zshrc $HOME/.zshrc
+
+# Lets sort out .gitconfig
+rm -rf ~/.gitconfig
+ln -s $HOME/.dotfiles/.gitconfig $HOME/.gitconfig
