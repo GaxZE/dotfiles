@@ -15,15 +15,15 @@ if [ "$(uname)" == "Darwin" ]; then
 	brew update
 
 	apps=(
-        bash
-        coreutils
+		bash
+		coreutils
 		git
 		mysql
 		node
 		ruby
 		wget
-        zsh
-        zsh-completions
+		zsh
+		zsh-completions
 	)
 	brew install "${apps[@]}"
 	brew upgrade "${apps[@]}"
@@ -37,16 +37,16 @@ if [ "$(uname)" == "Darwin" ]; then
 
 	apps=(
 		docker
-        font-source-code-pro-for-powerline
-        font-source-code-pro
-        font-source-sans-pro
-        font-source-serif-pro
+		font-source-code-pro-for-powerline
+		font-source-code-pro
+		font-source-sans-pro
+		font-source-serif-pro
 		iterm2
 		postman
 		sequel-pro
-        vagrant
-        virtualbox
-        virtualbox-extension-pack
+		vagrant
+		virtualbox
+		virtualbox-extension-pack
 	)
 	brew cask install "${apps[@]}"
 	brew cask upgrade "${apps[@]}"
@@ -63,7 +63,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 
 	apps=(
 		git
-        htop
+		htop
 		nodejs
 		npm
 		ruby
@@ -83,7 +83,9 @@ mv composer.phar /usr/local/bin/composer
 npm install --global yarn
 
 # install oh-my-zsh
-export ZSH="$HOME/.dotfiles/oh-my-zsh"; sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+export ZSH="$HOME/.oh-my-zsh"; sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 
 # Removes .zshrc from $HOME (if it exists) and symlinks the .zshrc file from the .dotfiles
 rm -rf $HOME/.zshrc
