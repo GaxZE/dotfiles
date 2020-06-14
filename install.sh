@@ -18,8 +18,6 @@ if [ "$(uname)" == "Darwin" ]; then
 		bash
 		coreutils
 		git
-		mysql
-		node
 		ruby
 		wget
 		zsh
@@ -33,14 +31,9 @@ if [ "$(uname)" == "Darwin" ]; then
 
 	# Install Caskroom
 	brew tap caskroom/cask
-    brew tap caskroom/fonts
 
 	apps=(
 		docker
-		font-source-code-pro-for-powerline
-		font-source-code-pro
-		font-source-sans-pro
-		font-source-serif-pro
 		iterm2
 		postman
 		sequel-pro
@@ -64,14 +57,11 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 	apps=(
 		git
 		htop
-		nodejs
 		npm
-		ruby
 		wget
+		postman
 	)
 	apt install "${apps[@]}"
-    apt install python-pip python-dev build-essential
-	apt install fonts-powerline
 
 fi
 
@@ -79,13 +69,8 @@ fi
 curl -sS https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
 
-# Install global NPM packages
-npm install --global yarn
-
 # install oh-my-zsh
 export ZSH="$HOME/.oh-my-zsh"; sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
-git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 
 # Removes .zshrc from $HOME (if it exists) and symlinks the .zshrc file from the .dotfiles
 rm -rf $HOME/.zshrc
